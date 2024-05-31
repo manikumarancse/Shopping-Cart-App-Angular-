@@ -1,0 +1,15 @@
+<div class="main-content" *ngIf="router.url !== '/login' && router.url !== '/signup'; else authPage">
+  <app-navbar></app-navbar>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>
+<ng-template #authPage>
+  <router-outlet></router-outlet>
+</ng-template>
+<button *ngIf="isMenuScrolled" class="top" (click)="scrollToTop()">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+  </svg>
+</button>

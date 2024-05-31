@@ -1,0 +1,163 @@
+.grid-listing-container{
+    background-color: #e5e7eb;
+}
+.listing{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+}
+.filters{
+    padding: 1rem;
+    background-color: #FFF;
+    grid-column: 1/span 1;
+}
+.listing-container{
+    grid-column: 2/span 1;
+}
+/* Hamburger */
+.navMenu{
+    max-height: 10vh;
+    padding: 1rem;
+    display: none;
+    justify-content: flex-end;
+    background-color: #FFF;
+}
+.hamburger{
+    cursor: pointer; 
+    margin-right: 15px;
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+}
+/* Listing container(Product container) set column 3 */
+.listing-container{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    gap: 20px;
+}
+
+.filters{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filters{
+    display: flex;
+}
+#category,.price{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    font-size: 22px;
+    margin-top: 20px;
+    padding: 5px;
+    font-family: 'Roboto',sans-serif;
+}
+#category select,.price select{
+    color: white;
+    background-color: #225489de;
+    font-size: 18px;
+    margin-top: 10px;
+    padding: 5px;
+}
+.notFound{
+    text-align: left;
+    color: #3b82f6;
+    font-size: 40px;
+}
+.card{
+    transition: opacity 0.3s ease-in-out;
+}
+.no-products-message {
+    text-align: center;
+    font-size: 2.2em;
+    color: #3b82f6;
+    margin-top: 20px;
+  }
+
+.products_card img{
+    width: 100%;
+    height: 300px;
+    object-fit:cover;
+}
+.product-title{
+    color: #000;
+    font-family: 'Roboto',sans-serif;
+    font-size: 18px;
+}
+.discount{
+    color: rgb(56, 142, 60);
+    font-weight: 500;
+}
+.price-tag{
+    color: #000;
+    font-family: 'Roboto',sans-serif;
+
+}
+
+@media (max-width:992px) {
+    .listing-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width:480px) {
+    .listing-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+/* Hamburger toggle */
+@media (max-width:550px) {
+    .navMenu{
+        display: flex;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .listing{
+        gap: 0;
+        transition: all 1s;
+        grid-template-rows: min-content;
+        grid-template-columns: 1fr;
+        /* transition: 0.3s; */
+    }
+    #category, .price {
+        margin-top: 0;
+        padding: 0;
+    }
+    .listing-container{
+        grid-column: 1/span 1;
+        /* transition: 0.3s; */
+    }
+
+    .filters{
+        position: fixed;
+        left: -100%;
+        /* transition: 0.3s; */
+        width: 100%;
+    }
+
+    .filters.active{
+        position: static;
+        grid-row: 2 /span 1;
+        /* transition: 0.3s; */
+    }
+}

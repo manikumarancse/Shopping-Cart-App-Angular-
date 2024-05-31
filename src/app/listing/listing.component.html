@@ -1,0 +1,39 @@
+<div class="grid-listing-container">
+    <div class="listing" id="listing">
+        <div class="navMenu">
+            <div (click)="toggle()" [ngClass]="hamburgerClass">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        <div [ngClass]="filterClass">
+            <div class="category" id="category">Category<br>
+                <select name="categoriesOption" #categoriesOption [(ngModel)]="selectedCategory" (change)="onchange($event)">
+                    <option value="All">All</option>
+                    <option *ngFor="let categories of categoriesList" [value]="categories">{{categories}}</option>
+                </select> 
+            </div>
+            <div class="price">Price
+                <select name="Price" #priceOption [(ngModel)]="priceRange" (change)="onPriceChange($event)">
+                    <option value="Default" id="Default">Default</option>
+                    <option value="LowToHigh">Low To High</option>
+                    <option value="HighToLow">High To Low</option>   
+                </select>
+            </div>
+        </div>
+        <div *ngIf="!products.length" class="no-products-message">
+            No products available.
+        </div>
+        <div class="listing-container" id="listing-container">
+            <div *ngFor="let product of products" [@fadeInOut]>
+            <a [routerLink]="['/singleproduct', product.id]" routerLinkActive="router-link-active" class="card">
+                <img [src]="product.thumbnail" alt="{{ product.title }}" />
+                <p class="product-title">{{ product.title }}</p>
+                <h3 class="price-tag">${{ product.price }}</h3>
+                <p class="discount">{{ product.discountPercentage }}% off</p>
+              </a>
+              </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<!-- / -->
+<button class="back" (click)="backClicked()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+      </svg>
+      
+      
+      
+  </button>
+<div class="container" *ngIf="singleResult">
+    <div class="single-product">
+        <div class="row">
+            <div class="co-6">
+                <div class="product-image">
+                    <div class="product-image-main">
+                        <img [src]="singleResult.thumbnail" alt="{{singleResult.title}}" id="product-main-image" >
+                    </div>
+                    <div class="product-image-slider">
+                        <img *ngFor="let image of singleResult.images; let i = index" 
+                             [src]="image" 
+                             [alt]="'Image ' + (i + 1)"
+                             (click)="onImageClick(image)">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="product-add">
+                    <h1 id="additionalInfoHeader" (click)="toggleAdditionalInfo()">Additional Information<i class="fa fa-plus" aria-hidden="true"></i></h1>
+                    <div class="addinfo" id="additionalInfo" [style.display]="isAdditionalInfoVisible ? 'block' : 'none'">
+                      <div class="returnPolicy">
+                        <h2>Return Policy:<span>{{ singleResult?.returnPolicy }}</span></h2>
+                      </div>
+                      <div class="ShippingInfo">
+                        <h2>Shipping Information:<span>{{ singleResult?.shippingInformation }}</span></h2>
+                      </div>
+                      <div class="WarrentyInfo">
+                        <h2>Warranty Information:<span>{{ singleResult?.warrantyInformation }}</span></h2>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+                
+            </div>
+            <div class="co-6">
+                <div class="product">
+                    <div class="product-title">
+                        <h2>{{singleResult.title}}</h2>
+                    </div>
+                    <div class="product-price">
+                        <h2>Price: $<span>{{singleResult.price}}</span></h2>
+                        <h2>Discount: <span>{{singleResult.discountPercentage}}</span>%</h2>
+                    </div>
+                    <div class="product-details">
+                        <h3>Description</h3>
+                        <p>{{singleResult.description}}</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="product-btn-group">
+                        <button (click)="addToCart()" class="button add-cart"><i class="bx bxs-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+               
+                <!-- Review section -->
+                <app-ratings></app-ratings>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="navbar" [ngClass]="{'listing-page': showSearchBar}">
+    <div class="logo">
+        <span><a [routerLink]="['/']" routerLinkActive="router-link-active" >Eshop Spot</a></span>
+    </div>
+    <div class="search-bar" *ngIf="showSearchBar">
+        <span><input type="text" placeholder="Search by Product name" (input)="onSearch($event)" value="{{searchValue}}"></span>
+    </div>
+    <div [class]="userProfile" id="user-profile" [ngClass]="{'listing-page': showSearchBar}">
+        <span id="profileImg">{{ userName }}</span>
+    </div>
+    <div class="cart-btn" [ngClass]="{'listing-page': showSearchBar}">
+        <button routerLink="cart" class="btn btn-primary">
+            <i class="fas fa-cart-plus"></i>
+            <div *ngIf="cartItemCount > 0" class="badge bg-danger">{{ cartItemCount }}</div>
+        </button>
+    </div>
+    <div class="login-btn" [ngClass]="{'listing-page': showSearchBar}">
+        <a class="btn" [routerLink]="['/login']" routerLinkActive="router-link-active" (click)="loginBtn()">{{ LoginText }}</a>
+    </div>
+</div>

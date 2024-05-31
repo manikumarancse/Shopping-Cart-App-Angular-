@@ -1,0 +1,213 @@
+/* Import google Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Varibales */
+:root {
+    --bg-color: #3b82f6;
+    --white: #ffF;
+  }
+
+
+/* Remove browser default styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    scroll-behavior: smooth;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+app-footer {
+    /* Ensure the footer has some height */
+    height: 50px; /* Adjust as needed */
+}
+
+body{
+    background-color: #e5e7eb;
+}
+
+/* ------------START----------- */
+/* --------index.html----------- */
+/* Grid 3 rows -> Navbar, Welcome Text & Categories container */
+.grid-main-container{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px .7fr 1fr 20px;
+}
+
+/* Navbar -> Grid first row */
+.navbar{
+    background-color: #3b82f6;
+    color: #FFF;
+
+    grid-row: 1/span 1;
+}
+/* Welcome Text and Search bar -> grid second row */
+.welcome-text{
+    background-color: #FFF;
+    grid-row: 2/span 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-size: 3.8rem;
+    font-weight: 900;
+}
+/* Category Container -> Grid third row */
+.categories-container{
+    grid-row: 3/span 1;
+}
+.footer{
+    grid-row: 4/span 1;
+    color: #FFF;
+    /* text-align: center; */
+}
+
+/* Set navbar grid 3 columns */
+.navbar{
+    display: grid;
+    grid-template-columns: 1fr 50px 100px;
+    gap: 10px;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* Eshop spot Text */
+.logo{
+    cursor: pointer;
+    grid-column: 1/ span 1;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: .6px;
+}
+.logo a{
+    text-decoration: none;
+    color: #FFF;
+}
+/* Username and Login button */
+.user-profile-img{
+    grid-column: 2/ span 1;
+}
+
+.login-btn{
+    margin-left: auto;
+    grid-column: 3/ span 1;
+}
+/* user profile */
+.user-profile, .profile{
+    margin-left: auto;
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+    font-weight: 800;
+}
+
+/* button style */
+.btn{
+    cursor: pointer;
+    padding: .8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    outline: none;
+    background-color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 25px;
+    color: var(--bg-color);
+}
+
+/* Tagline style */
+.tagline {
+    text-align: center;
+    width: 100%;
+    font-size: 1.3rem;
+    font-weight: 400;
+    /* border: 2px solid blue; */
+    /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
+}
+
+/* individual product card style */
+.card{
+    cursor: pointer;
+    padding: 1rem 1rem;
+    background-color: #FFF;
+    /* max-width: 300px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+/* .card >*:first-child{
+    margin-bottom: auto;
+}
+.card >*:last-child{
+    margin-top: auto;
+} */
+.card img{
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
+}
+
+.card:hover{
+    box-shadow: 0 3px 16px 0 rgba(0,0,0,.11);
+}
+
+
+/* set Categories container four columns */
+.categories-container{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+/* footer copyrights */
+.footer a{
+    color: #FFF;
+    text-align: center;
+}
+.copyright{
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    background-color: #111;
+}
+
+.top{
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+    background-color: #3b82f6ba;
+    color: #FFF;
+    transition: all;
+    border: none;
+}
+.top:hover{
+    background-color: #3b82f6;
+}
+/* --------index.html----------- */
+/* ------------END----------- */

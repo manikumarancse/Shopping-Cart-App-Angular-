@@ -1,0 +1,67 @@
+<link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!--Review section  -->
+<br>
+<div class="ratebox">
+  <div class="rating-box">
+    <h3>Customer ratings</h3>
+    <div class="star" id="star">
+      <i class="{{ star }}" *ngFor="let star of drawStars(getJsonData.rating)"></i>
+      <p id="rateno">{{ getJsonData.rating }} out of 5 </p>
+    </div>
+
+    <h3>Review this product</h3>
+    <div class="writerev">
+      <p>Share your thoughts with our customers</p>
+      <button type="button" id="openReviewPopup" (click)="showpopup()">Add review</button>
+    </div>
+  </div>
+</div>
+
+<!-- Review Popup Container -->
+<div class="popup-container" *ngIf="showrevpop">
+  <div id="popupContainer">
+    <button type="button" id="close" (click)="showoffpopup()">&times;</button>
+    <h3>Rate the product</h3>
+    <div class="popstar">
+      <div>
+        <i class="fa-solid fa-star" *ngFor="let star of drawStars(5); let i=index" [ngClass]="{'active': i < selectedStars}" (click)="rateProduct(i)"></i>
+      </div>
+      <p id="poprateno" [ngClass]="getRatingInfo(selectedStars).className">{{ getRatingInfo(selectedStars).description }}</p>
+    </div>
+
+    <h3>Write a review..</h3>
+    <textarea name="description" id="popdescription" placeholder="Description" [(ngModel)]="reviewDescription"></textarea>
+    <button type="submit" id="popsubmitrev" (click)="popsubmitrev()">Submit</button>
+  </div>
+</div>
+
+<!--Customer say..  -->
+<!--Review section  -->
+<br>
+<div class="useridreview" id="customerReviews">
+  <div class="customer-say">
+    <h3>Customers Say</h3>
+    <div class="reviews-display" *ngFor="let review of reviews">
+      <h4>{{ review.reviewerName }}</h4>
+      <div class="star">
+        <i class="{{ star }}" *ngFor="let star of drawStarsRate(review.rating)"></i>
+      </div>
+      <p>{{ review.reviewerEmail }}</p>
+      <p>{{ review.date }}</p>
+       <p>  <small><b><i>Comment :</i></b></small> {{ review.comment }}</p>
+      <br>
+    </div>
+    <div class="reviews-display" *ngFor="let productRev of productReviews">
+      <h4>{{ productRev.username }}</h4>
+      <div class="star">
+        <i class="{{ star }}" *ngFor="let star of drawStarsRate(productRev.rating)"></i>
+      </div>
+      <p>{{productRev.email}}</p>
+      <p>{{productRev.date}}</p>
+      <p>  <small><b><i>Comment :</i></b></small> {{ productRev.description }}</p>
+      <br>
+    </div>
+  </div>
+</div>

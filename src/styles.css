@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.card{
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0px;
+}
+.card img{
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
+}
+.card:hover{
+    box-shadow: 0 3px 16px 0 rgba(0,0,0,.11);
+}

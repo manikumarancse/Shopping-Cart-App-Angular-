@@ -1,0 +1,16 @@
+<div class="welcome-text">
+  <div>Welcome to E-shop Spot.</div>
+  <div class="tagline">
+    <span>Get ready for summer!</span>
+  </div>
+</div>
+
+<div class="categories-container">
+  <div *ngFor="let category of categoriesList; let i = index">
+    <a [routerLink]="['/listing', category]" routerLinkActive="router-link-active"  class="card" *ngIf="getFirstProductForCategory(category) as product">
+      <div class="title">{{ category }}</div>
+      <img [src]="product.thumbnail" alt="{{ product.title }}" />
+      <p class="price-tag">From ${{ product.price }}</p>
+    </a>
+  </div>
+</div>
